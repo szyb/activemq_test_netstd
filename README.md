@@ -1,6 +1,7 @@
 # activemq_test_netstd
-This is POC example code for slow performance for large message (1MB) dequeuing from ActiveMQ by using Apache.NMS.ActiveMQ.NetStd (Version="1.7.2.4115") on linux OS.
-The same code works perfect on Windows
+This is POC example code for slow performance for large (1MB) message dequeuing from ActiveMQ by using Apache.NMS.ActiveMQ.NetStd (Version="1.7.2.4115") on linux OS.
+The sample code was taken (and then slightly modified) from https://activemq.apache.org/components/nms/examples/nms-simple-asynchronous-consumer-example
+The same code works perfect on Windows, even if conneted to linux ActiveMQ instance.
 
 # tests
 ## windows output
