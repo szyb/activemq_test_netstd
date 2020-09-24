@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using Apache.NMS;
+using Apache.NMS.ActiveMQ.Transport.Tcp;
 using Apache.NMS.Util;
 
 namespace Apache.NMS.ActiveMQ.Test
@@ -42,7 +43,8 @@ namespace Apache.NMS.ActiveMQ.Test
       Uri connecturi = new Uri("activemq:tcp://localhost:61616");
 
       Console.WriteLine("About to connect to " + connecturi);
-
+      TcpTransportManager.ReceiveBufferSize = 1024 * 64;
+      TcpTransportManager.SendBufferSize = 1024 * 8;
       // NOTE: ensure the nmsprovider-activemq.config file exists in the executable folder.
       IConnectionFactory factory = new NMSConnectionFactory(connecturi);
 
@@ -119,7 +121,7 @@ namespace Apache.NMS.ActiveMQ.Test
     {
       StringBuilder sb = new StringBuilder();
       Random rnd = new Random();
-      for (int i = 0; i <= 1024 * 1024; i++)
+      for (int i = 0; i <= 10 * 1024 * 1024; i++)
         sb.Append(rnd.Next(0, 9).ToString());
       return sb.ToString();
     }
